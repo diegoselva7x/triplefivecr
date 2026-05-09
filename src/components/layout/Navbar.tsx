@@ -47,12 +47,12 @@ export default function Navbar() {
           <Image
             src="/images/brand/logo-full.png"
             alt="555 Triple Five"
-            width={120}
-            height={44}
+            width={160}
+            height={60}
             style={{
-              height: '32px',
+              height: '44px',
               width: 'auto',
-              filter: 'brightness(0) drop-shadow(0 1px 3px rgba(0,0,0,0.2))',
+              filter: 'brightness(0) drop-shadow(0 1px 3px rgba(0,0,0,0.15))',
             }}
             priority
           />
@@ -105,7 +105,6 @@ export default function Navbar() {
           onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
           onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
         >
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#7CFFC4', boxShadow: '0 0 10px #7CFFC4', flexShrink: 0 }} />
           Entradas
         </a>
 

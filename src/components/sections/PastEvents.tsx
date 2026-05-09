@@ -1,6 +1,7 @@
 'use client';
 
 import { PAST_EVENTS, SITE } from '@/lib/constants';
+import IgIcon from '@/components/ui/IgIcon';
 
 export default function PastEvents() {
   return (
@@ -69,7 +70,8 @@ export default function PastEvents() {
               flexShrink: 0,
             }}
           >
-            Ver más en Instagram <span>↗</span>
+            <IgIcon size={16} color="#0A0E0D" />
+            Ver más en Instagram ↗
           </a>
         </div>
 

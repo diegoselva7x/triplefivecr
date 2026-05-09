@@ -69,9 +69,12 @@ export const TEAM = [
     handle: '@mathias_selva',
     label: 'Mathias',
     instagram: 'https://www.instagram.com/mathias_selva/',
+    image: '/images/brand/mathias-selva-imagen.jpg',
   },
-  { name: 'Member 02', role: 'Producción\nLogística', handle: '@member02', label: '02', instagram: '' },
-  { name: 'Member 03', role: 'Marketing\nRedes', handle: '@member03', label: '03', instagram: '' },
-  { name: 'Member 04', role: 'Booking\nCuraduría', handle: '@member04', label: '04', instagram: '' },
-  { name: 'Member 05', role: 'Diseño\nVisuales', handle: '@member05', label: '05', instagram: '' },
+  { name: 'Member 02', role: 'Producción\nLogística', handle: '@member02', label: '02', instagram: '', image: '' },
+  { name: 'Member 03', role: 'Marketing\nRedes', handle: '@member03', label: '03', instagram: '', image: '' },
+  { name: 'Member 04', role: 'Booking\nCuraduría', handle: '@member04', label: '04', instagram: '', image: '' },
+  { name: 'Member 05', role: 'Diseño\nVisuales', handle: '@member05', label: '05', instagram: '', image: '' },
 ];
+
+export const TIKTOK_URL = 'https://www.tiktok.com/@triplefivecr/video/7634616826810404116';

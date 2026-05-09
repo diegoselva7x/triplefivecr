@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { CALENDAR_EVENTS } from '@/lib/constants';
+import IgIcon from '@/components/ui/IgIcon';
 
 export default function About() {
   return (
@@ -180,18 +180,7 @@ export default function About() {
                         onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
                         onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
                       >
-                        <Image
-                          src="/images/brand/logo-instagram.avif"
-                          alt="Instagram"
-                          width={12}
-                          height={12}
-                          style={{
-                            width: '12px',
-                            height: '12px',
-                            objectFit: 'contain',
-                            filter: isNext ? 'brightness(0) invert(1)' : 'brightness(0)',
-                          }}
-                        />
+                        <IgIcon size={12} color={isNext ? '#fff' : '#0A0E0D'} />
                         Ver perfil
                       </a>
                     )}

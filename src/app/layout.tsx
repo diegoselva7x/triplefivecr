@@ -68,7 +68,6 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${bricolage.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <head>
-        <link rel="icon" href="/images/brand/logo-icon.png" type="image/png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

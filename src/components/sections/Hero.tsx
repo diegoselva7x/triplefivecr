@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { SITE, TICKER_ITEMS } from '@/lib/constants';
+import IgIcon from '@/components/ui/IgIcon';
 
 const allTickerItems = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
@@ -54,56 +55,31 @@ export default function Hero() {
           width: '100%',
         }}
       >
-        {/* Logo full — chrome style above tag pill */}
-        <div style={{ marginBottom: '24px' }}>
-          <Image
-            src="/images/brand/logo-full.png"
-            alt="555 Triple Five"
-            width={160}
-            height={60}
-            priority
-            style={{
-              height: '44px',
-              width: 'auto',
-              filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(20,32,28,0.25))',
-              opacity: 0.9,
-            }}
-          />
-        </div>
-
         {/* Tag pill */}
         <span
-          className="mono"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
-            padding: '7px 14px',
+            gap: '0',
+            padding: '7px 16px',
             borderRadius: '999px',
             border: '1px solid rgba(10,14,13,0.18)',
             background: 'rgba(255,255,255,0.35)',
             backdropFilter: 'blur(8px)',
+            fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
             fontSize: '11px',
             letterSpacing: '0.16em',
             color: '#0A0E0D',
           }}
         >
-          <span style={{
-            width: '5px',
-            height: '5px',
-            borderRadius: '50%',
-            background: '#0A0E0D',
-            flexShrink: 0,
-            display: 'inline-block',
-          }} />
-          COSTA RICA · EST. 2024
+          · COSTA RICA · EST. 2024 ·
         </span>
 
         {/* 555 balloon image */}
         <div style={{
           position: 'relative',
-          width: 'min(680px, 82vw)',
-          margin: '20px auto 4px',
+          width: 'min(860px, 96vw)',
+          margin: '8px auto 0px',
           display: 'grid',
           placeItems: 'center',
         }}>
@@ -133,7 +109,7 @@ export default function Hero() {
         </div>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '20px' }}>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '10px' }}>
           <a
             href={SITE.tickets}
             target="_blank"
@@ -190,13 +166,7 @@ export default function Hero() {
             onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
           >
-            <Image
-              src="/images/brand/logo-instagram.avif"
-              alt="Instagram"
-              width={18}
-              height={18}
-              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
-            />
+            <IgIcon size={18} color="#0A0E0D" />
             @triplefivecr
           </a>
         </div>

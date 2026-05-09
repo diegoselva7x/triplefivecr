@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { NAV_LINKS, SITE } from '@/lib/constants';
+import { NAV_LINKS, SITE, TIKTOK_URL } from '@/lib/constants';
 
 export default function Footer() {
   return (
@@ -110,11 +110,11 @@ export default function Footer() {
               onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '0.85')}
             >Bookings →</a>
-            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer"
+            <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer"
               style={{ display: 'block', padding: '6px 0', color: '#fff', fontSize: '15px', opacity: 0.85, transition: 'opacity .15s' }}
               onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
               onMouseLeave={e => (e.currentTarget.style.opacity = '0.85')}
-            >Press kit →</a>
+            >Conócenos en TikTok →</a>
           </div>
         </div>
 

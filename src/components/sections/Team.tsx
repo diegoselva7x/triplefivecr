@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { TEAM } from '@/lib/constants';
+import IgIcon from '@/components/ui/IgIcon';
 
 export default function Team() {
   return (
@@ -52,7 +53,7 @@ export default function Team() {
               onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-3px)')}
               onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
             >
-              {/* Photo placeholder */}
+              {/* Photo */}
               <div style={{
                 aspectRatio: '1/1',
                 borderRadius: '12px',
@@ -65,21 +66,31 @@ export default function Team() {
                 overflow: 'hidden',
                 border: '1px solid rgba(10,14,13,0.08)',
               }}>
-                <span style={{
-                  position: 'absolute',
-                  left: '8px',
-                  bottom: '8px',
-                  fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
-                  fontSize: '9px',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  color: '#0A0E0D',
-                  background: 'rgba(255,255,255,0.75)',
-                  padding: '4px 7px',
-                  borderRadius: '999px',
-                }}>
-                  [ Foto · {member.label} ]
-                </span>
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                    sizes="(max-width: 660px) 50vw, (max-width: 1100px) 33vw, 20vw"
+                  />
+                ) : (
+                  <span style={{
+                    position: 'absolute',
+                    left: '8px',
+                    bottom: '8px',
+                    fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
+                    fontSize: '9px',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: '#0A0E0D',
+                    background: 'rgba(255,255,255,0.75)',
+                    padding: '4px 7px',
+                    borderRadius: '999px',
+                  }}>
+                    [ Foto · {member.label} ]
+                  </span>
+                )}
               </div>
 
               {/* Meta */}
@@ -131,13 +142,7 @@ export default function Team() {
                 onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
                 onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
               >
-                <Image
-                  src="/images/brand/logo-instagram.avif"
-                  alt="Instagram"
-                  width={12}
-                  height={12}
-                  style={{ width: '12px', height: '12px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
-                />
+                <IgIcon size={12} color="#fff" />
                 {member.handle} ↗
               </a>
             </article>
