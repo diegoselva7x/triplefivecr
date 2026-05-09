@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { NAV_LINKS, SITE } from '@/lib/constants';
 
 export default function Navbar() {
@@ -36,25 +37,25 @@ export default function Navbar() {
           boxShadow: '0 6px 30px rgba(20,32,28,0.10), inset 0 1px 0 rgba(255,255,255,0.7)',
         }}
       >
-        {/* Logo */}
+        {/* Logo — logo-full.png con estilo chrome */}
         <a
           href="#top"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-          style={{
-            fontFamily: 'var(--font-display, "Bricolage Grotesque", sans-serif)',
-            fontWeight: 800,
-            fontSize: '26px',
-            letterSpacing: '-0.04em',
-            background: 'linear-gradient(180deg,#fff 0%, #c9d4d0 50%, #fff 100%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))',
-            flexShrink: 0,
-          }}
-          aria-label="555 inicio"
+          style={{ flexShrink: 0, lineHeight: 0 }}
+          aria-label="555 Triple Five — inicio"
         >
-          555
+          <Image
+            src="/images/brand/logo-full.png"
+            alt="555 Triple Five"
+            width={120}
+            height={44}
+            style={{
+              height: '32px',
+              width: 'auto',
+              filter: 'brightness(0) drop-shadow(0 1px 3px rgba(0,0,0,0.2))',
+            }}
+            priority
+          />
         </a>
 
         {/* Desktop links */}
@@ -82,7 +83,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTA — Entradas con logo eventcr */}
         <a
           href={SITE.tickets}
           target="_blank"

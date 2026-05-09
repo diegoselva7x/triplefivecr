@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { TEAM } from '@/lib/constants';
 
 export default function Team() {
@@ -106,9 +107,9 @@ export default function Team() {
                 </div>
               </div>
 
-              {/* Instagram handle */}
+              {/* Instagram handle button */}
               <a
-                href={`https://instagram.com/${member.handle.replace('@', '')}`}
+                href={member.instagram || `https://instagram.com/${member.handle.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -125,8 +126,18 @@ export default function Team() {
                   alignSelf: 'flex-start',
                   fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
                   letterSpacing: '0.04em',
+                  transition: 'opacity .15s',
                 }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = '0.8')}
+                onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
               >
+                <Image
+                  src="/images/brand/logo-instagram.avif"
+                  alt="Instagram"
+                  width={12}
+                  height={12}
+                  style={{ width: '12px', height: '12px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+                />
                 {member.handle} ↗
               </a>
             </article>

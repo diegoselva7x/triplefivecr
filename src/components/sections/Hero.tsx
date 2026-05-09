@@ -22,12 +22,12 @@ export default function Hero() {
       id="top"
       style={{
         position: 'relative',
-        minHeight: '100vh',
-        padding: '120px 0 0',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       {/* Sparkles */}
@@ -40,33 +40,75 @@ export default function Hero() {
         <span className="spark" style={{ top: '70%', right: '8%' }}>✦</span>
       </div>
 
-      <div className="wrap" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        {/* Tag pill */}
-        <span className="mono" style={{
-          display: 'inline-flex',
+      {/* Main content — centered vertically in the remaining space above the ticker */}
+      <div
+        className="wrap"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '10px',
-          padding: '8px 14px',
-          borderRadius: '999px',
-          border: '1px solid rgba(10,14,13,0.18)',
-          background: 'rgba(255,255,255,0.35)',
-          backdropFilter: 'blur(8px)',
-          fontSize: '12px',
-        }}>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#0A0E0D', flexShrink: 0 }} />
+          flex: 1,
+          justifyContent: 'center',
+          paddingTop: '80px',
+          paddingBottom: '0',
+          width: '100%',
+        }}
+      >
+        {/* Logo full — chrome style above tag pill */}
+        <div style={{ marginBottom: '24px' }}>
+          <Image
+            src="/images/brand/logo-full.png"
+            alt="555 Triple Five"
+            width={160}
+            height={60}
+            priority
+            style={{
+              height: '44px',
+              width: 'auto',
+              filter: 'brightness(0) invert(1) drop-shadow(0 2px 8px rgba(20,32,28,0.25))',
+              opacity: 0.9,
+            }}
+          />
+        </div>
+
+        {/* Tag pill */}
+        <span
+          className="mono"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '7px 14px',
+            borderRadius: '999px',
+            border: '1px solid rgba(10,14,13,0.18)',
+            background: 'rgba(255,255,255,0.35)',
+            backdropFilter: 'blur(8px)',
+            fontSize: '11px',
+            letterSpacing: '0.16em',
+            color: '#0A0E0D',
+          }}
+        >
+          <span style={{
+            width: '5px',
+            height: '5px',
+            borderRadius: '50%',
+            background: '#0A0E0D',
+            flexShrink: 0,
+            display: 'inline-block',
+          }} />
           COSTA RICA · EST. 2024
         </span>
 
         {/* 555 balloon image */}
         <div style={{
           position: 'relative',
-          width: 'min(720px, 86vw)',
-          margin: '28px auto 6px',
+          width: 'min(680px, 82vw)',
+          margin: '20px auto 4px',
           display: 'grid',
           placeItems: 'center',
         }}>
           {/* Glow halo */}
-          <div style={{
+          <div aria-hidden="true" style={{
             position: 'absolute',
             inset: '-10% -6%',
             background: 'radial-gradient(55% 45% at 50% 55%, rgba(255,255,255,0.5), transparent 65%)',
@@ -91,7 +133,7 @@ export default function Hero() {
         </div>
 
         {/* CTAs */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', margin: '28px auto 0' }}>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '20px' }}>
           <a
             href={SITE.tickets}
             target="_blank"
@@ -99,8 +141,8 @@ export default function Hero() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
-              padding: '16px 22px',
+              gap: '8px',
+              padding: '14px 20px',
               borderRadius: '999px',
               fontWeight: 600,
               fontSize: '15px',
@@ -118,7 +160,14 @@ export default function Hero() {
               e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(10,14,13,0.5)';
             }}
           >
-            Conseguir Entradas <span style={{ display: 'inline-block', transition: 'transform .2s' }}>→</span>
+            <Image
+              src="/images/brand/logo-eventcr-entradas.png"
+              alt="eventcr"
+              width={18}
+              height={18}
+              style={{ width: '18px', height: '18px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+            />
+            Conseguir Entradas
           </a>
           <a
             href={SITE.instagram}
@@ -127,8 +176,8 @@ export default function Hero() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
-              padding: '16px 22px',
+              gap: '8px',
+              padding: '14px 20px',
               borderRadius: '999px',
               fontWeight: 600,
               fontSize: '15px',
@@ -141,16 +190,22 @@ export default function Hero() {
             onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
           >
-            @triplefivecr <span style={{ display: 'inline-block', transition: 'transform .2s' }}>↗</span>
+            <Image
+              src="/images/brand/logo-instagram.avif"
+              alt="Instagram"
+              width={18}
+              height={18}
+              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+            />
+            @triplefivecr
           </a>
         </div>
       </div>
 
-      {/* Ticker */}
+      {/* Ticker — pinned to bottom of viewport */}
       <div
         aria-hidden="true"
         style={{
-          marginTop: '44px',
           borderTop: '1px solid rgba(10,14,13,0.18)',
           borderBottom: '1px solid rgba(10,14,13,0.18)',
           background: 'rgba(255,255,255,0.18)',
@@ -158,6 +213,7 @@ export default function Hero() {
           whiteSpace: 'nowrap',
           padding: '14px 0',
           width: '100%',
+          flexShrink: 0,
         }}
       >
         <div style={{

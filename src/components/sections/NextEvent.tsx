@@ -67,7 +67,7 @@ export default function NextEvent() {
             animation: 'pulse 1.4s ease-in-out infinite',
             flexShrink: 0,
           }} />
-          Próximo Evento · Coming Soon
+          Próximamente · Coming Soon
         </span>
 
         {/* Title */}
@@ -153,29 +153,20 @@ export default function NextEvent() {
         </div>
 
         {/* Meta */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '36px',
-          flexWrap: 'wrap',
-          margin: '24px 0 12px',
-        }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '36px', flexWrap: 'wrap', margin: '24px 0 12px' }}>
           {[
             { label: 'Artista', value: NEXT_EVENT.artist },
             { label: 'Venue', value: NEXT_EVENT.venue },
             { label: 'Fecha', value: formattedDate },
             { label: 'Mesas VIP', value: NEXT_EVENT.vipPhone },
           ].map(({ label, value }) => (
-            <div
-              key={label}
-              style={{
-                fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
-                fontSize: '12px',
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'rgba(10,14,13,0.7)',
-              }}
-            >
+            <div key={label} style={{
+              fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
+              fontSize: '12px',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'rgba(10,14,13,0.7)',
+            }}>
               {label}
               <b style={{
                 display: 'block',
@@ -200,7 +191,7 @@ export default function NextEvent() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
+              gap: '8px',
               padding: '16px 22px',
               borderRadius: '999px',
               fontWeight: 600,
@@ -213,6 +204,13 @@ export default function NextEvent() {
             onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
           >
+            <Image
+              src="/images/brand/logo-eventcr-entradas.png"
+              alt="eventcr"
+              width={18}
+              height={18}
+              style={{ width: '18px', height: '18px', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+            />
             Conseguir Entradas →
           </a>
           <a
@@ -222,7 +220,7 @@ export default function NextEvent() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '10px',
+              gap: '8px',
               padding: '16px 22px',
               borderRadius: '999px',
               fontWeight: 600,
@@ -236,6 +234,13 @@ export default function NextEvent() {
             onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)')}
             onMouseLeave={e => (e.currentTarget.style.transform = 'none')}
           >
+            <Image
+              src="/images/brand/logo-instagram.avif"
+              alt="Instagram"
+              width={18}
+              height={18}
+              style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+            />
             Info en Instagram ↗
           </a>
         </div>
@@ -250,7 +255,6 @@ export default function NextEvent() {
           boxShadow: '0 30px 80px -30px rgba(10,14,13,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset',
           position: 'relative',
         }}>
-          {/* Chrome border ring */}
           <div aria-hidden="true" style={{
             position: 'absolute',
             inset: '-1px',
@@ -266,7 +270,7 @@ export default function NextEvent() {
           <div style={{ borderRadius: '14px', overflow: 'hidden', background: '#000', aspectRatio: '1440/600' }}>
             <Image
               src={NEXT_EVENT.flyer}
-              alt={`${NEXT_EVENT.title} ${NEXT_EVENT.year} — ${NEXT_EVENT.artist} · ${formattedDate} · ${NEXT_EVENT.venue}`}
+              alt={`${NEXT_EVENT.title} ${NEXT_EVENT.year} — ${NEXT_EVENT.artist}`}
               width={1440}
               height={600}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -279,8 +283,8 @@ export default function NextEvent() {
             padding: '14px 8px 4px',
             color: 'rgba(255,255,255,0.65)',
           }}>
-            <span className="mono" style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase' }}>Flyer Oficial</span>
-            <span className="mono" style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase' }}>15 · 05 · 2026</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase' }}>Flyer Oficial</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase' }}>15 · 05 · 2026</span>
           </figcaption>
         </figure>
       </div>

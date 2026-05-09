@@ -1,21 +1,18 @@
+'use client';
+
+import Image from 'next/image';
 import { CALENDAR_EVENTS } from '@/lib/constants';
 
 export default function About() {
   return (
     <section id="about" style={{ padding: '120px 0 80px', position: 'relative' }}>
-      {/* Sparkles */}
       <span className="spark" style={{ top: '8%', right: '10%' }} aria-hidden="true">✦</span>
       <span className="spark sm" style={{ top: '30%', left: '6%' }} aria-hidden="true">✦</span>
 
       <div className="wrap">
         {/* Two-column header */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 1fr',
-          gap: '60px',
-          alignItems: 'end',
-          marginBottom: '48px',
-        }}
+        <div
+          style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: '60px', alignItems: 'end', marginBottom: '48px' }}
           className="about-head"
         >
           <h2 style={{
@@ -33,16 +30,10 @@ export default function About() {
               WebkitBackgroundClip: 'text',
               backgroundClip: 'text',
               color: 'transparent',
-              textShadow: 'none',
               filter: 'drop-shadow(0 2px 6px rgba(20,32,28,0.18))',
             }}>en Costa Rica.</em>
           </h2>
-          <p style={{
-            fontSize: '17px',
-            lineHeight: 1.55,
-            color: 'rgba(10,14,13,0.74)',
-            maxWidth: '46ch',
-          }}>
+          <p style={{ fontSize: '17px', lineHeight: 1.55, color: 'rgba(10,14,13,0.74)', maxWidth: '46ch' }}>
             Triple Five es una productora basada en San José. Traemos artistas ticos e internacionales al país y montamos los conciertos de principio a fin: booking, producción, venue y boletería.
           </p>
         </div>
@@ -127,8 +118,9 @@ export default function About() {
                       background: isNext ? '#0A0E0D' : isTba ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.7)',
                       border: isTba ? '1px dashed rgba(10,14,13,0.28)' : '1px solid rgba(10,14,13,0.08)',
                       color: isNext ? '#fff' : '#0A0E0D',
-                      position: 'relative',
-                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0',
                     }}
                   >
                     <div className="mono" style={{
@@ -137,14 +129,17 @@ export default function About() {
                       textTransform: 'uppercase',
                       color: isNext ? 'rgba(255,255,255,0.6)' : 'rgba(10,14,13,0.55)',
                     }}>{ev.date}</div>
+
                     <div style={{
                       fontFamily: 'var(--font-display, "Bricolage Grotesque", sans-serif)',
                       fontWeight: 800,
-                      fontSize: '20px',
+                      fontSize: '18px',
                       letterSpacing: '-0.02em',
                       marginTop: '6px',
+                      lineHeight: 1.1,
                       color: isTba ? 'rgba(10,14,13,0.45)' : undefined,
                     }}>{ev.handle}</div>
+
                     <div className="mono" style={{
                       fontSize: '10px',
                       letterSpacing: '0.14em',
@@ -153,12 +148,53 @@ export default function About() {
                       display: 'inline-block',
                       padding: '4px 8px',
                       borderRadius: '999px',
+                      alignSelf: 'flex-start',
                       ...(isNext ? { background: '#7CFFC4', color: '#0A0E0D' } :
                         isPast ? { background: 'rgba(10,14,13,0.08)', color: 'rgba(10,14,13,0.55)' } :
                           { border: '1px solid rgba(10,14,13,0.22)', color: 'rgba(10,14,13,0.6)' }),
                     }}>
                       {isNext ? 'Próximo' : isPast ? 'Pasado' : 'TBA'}
                     </div>
+
+                    {/* IG button — only for artists with instagram */}
+                    {ev.instagram && (
+                      <a
+                        href={ev.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          marginTop: '10px',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                          padding: '5px 9px',
+                          borderRadius: '999px',
+                          background: isNext ? 'rgba(255,255,255,0.12)' : 'rgba(10,14,13,0.08)',
+                          color: isNext ? '#fff' : '#0A0E0D',
+                          fontSize: '10px',
+                          fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
+                          letterSpacing: '0.08em',
+                          alignSelf: 'flex-start',
+                          transition: 'opacity .15s',
+                        }}
+                        onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+                        onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                      >
+                        <Image
+                          src="/images/brand/logo-instagram.avif"
+                          alt="Instagram"
+                          width={12}
+                          height={12}
+                          style={{
+                            width: '12px',
+                            height: '12px',
+                            objectFit: 'contain',
+                            filter: isNext ? 'brightness(0) invert(1)' : 'brightness(0)',
+                          }}
+                        />
+                        Ver perfil
+                      </a>
+                    )}
                   </div>
                 );
               })}
